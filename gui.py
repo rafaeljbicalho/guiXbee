@@ -30,7 +30,7 @@ class Application(tk.Frame):
 
     def ligaFarois(self):
         print("Ligando faróis")
-        os.system('sudo python3.6 ../xbee/farol_liga.py')
+        os.system('sudo python3.6 comandos/farol_liga.py')
 
 # Desliga farois
     def dFarois(self):
@@ -41,7 +41,7 @@ class Application(tk.Frame):
 
     def desligaFarois(self):
         print("Desligando faróis")
-        os.system('sudo python3.6 ../xbee/farol_desliga.py')
+        os.system('sudo python3.6 comandos/farol_desliga.py')
 
 # Emergência
     def emergencia(self):
@@ -52,7 +52,7 @@ class Application(tk.Frame):
 
     def ligaEmergencia(self):
         print("Acionando Emergência")
-        os.system('sudo python3.6 ../xbee/emergencia.py')
+        os.system('sudo python3.6 comandos/emergencia.py')
 
 # buzzer
     def buzzer(self):
@@ -63,7 +63,7 @@ class Application(tk.Frame):
 
     def ligaBuzzer(self):
         print("Acionando Buzzer")
-        os.system('sudo python3.6 ../xbee/buzzer.py')
+        os.system('sudo python3.6 comandos/buzzer.py')
 
 # decola
     def decolar(self):
@@ -74,7 +74,7 @@ class Application(tk.Frame):
 
     def subir(self):
         print("Decolando, apertem os cintos")
-        os.system('sudo python3.6 ../xbee/decolaY.py')
+        os.system('sudo python3.6 comandos/decolaY.py')
 
 # pousar
     def pousar(self):
@@ -85,7 +85,7 @@ class Application(tk.Frame):
 
     def pousa(self):
         print("Pousando, apertem os cintos")
-        os.system('sudo python3.6 ../xbee/pousaY.py')
+        os.system('sudo python3.6 comandos/pousaY.py')
 
 # trem de pouso
     def tremPouso(self):
@@ -96,7 +96,7 @@ class Application(tk.Frame):
 
     def trem(self):
         print("Acionar trem de pouso")
-        os.system('sudo python3.6 ../xbee/tremDePouso.py')
+        os.system('sudo python3.6 comandos/tremDePouso.py')
 
 # motor
     def ligaMotor(self):
@@ -107,7 +107,7 @@ class Application(tk.Frame):
 
     def motor(self):
         print("Ligando motor")
-        os.system('sudo python3.6 ../xbee/motor.py')
+        os.system('sudo python3.6 comandos/motor.py')
 
 # centraliza
     def centraliza(self):
@@ -118,7 +118,7 @@ class Application(tk.Frame):
 
     def centralizar(self):
         print("Centraliza avião")
-        os.system('sudo python3.6 ../xbee/centralizaY.py')
+        os.system('sudo python3.6 comandos/centralizaY.py')
 
 
 
