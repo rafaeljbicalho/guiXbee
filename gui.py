@@ -15,6 +15,8 @@ class Application(tk.Frame):
         self.decolar()
         self.pousar()
         self.tremPouso()
+        self.ligaMotor()
+        self.centraliza()
 
 # Liga Farois
     def farois(self):
@@ -72,7 +74,7 @@ class Application(tk.Frame):
 
     def subir(self):
         print("Decolando, apertem os cintos")
-        #os.system('sudo python3.6 ../xbee/buzzer.py')
+        os.system('sudo python3.6 ../xbee/decolaY.py')
 
 # pousar
     def pousar(self):
@@ -83,18 +85,42 @@ class Application(tk.Frame):
 
     def pousa(self):
         print("Pousando, apertem os cintos")
-        #os.system('sudo python3.6 ../xbee/buzzer.py')
+        os.system('sudo python3.6 ../xbee/pousaY.py')
 
 # trem de pouso
     def tremPouso(self):
-        self.trem = tk.Button(self)
-        self.trem["text"] = "Acionar trem de pouso"
-        self.trem["command"] = self.trem
-        self.trem.pack(side="top")
+        self.tremP = tk.Button(self)
+        self.tremP["text"] = "Acionar trem de pouso"
+        self.tremP["command"] = self.trem
+        self.tremP.pack(side="top")
 
     def trem(self):
         print("Acionar trem de pouso")
-        #os.system('sudo python3.6 ../xbee/buzzer.py')
+        os.system('sudo python3.6 ../xbee/tremDePouso.py')
+
+# motor
+    def ligaMotor(self):
+        self.ligaMotor = tk.Button(self)
+        self.ligaMotor["text"] = "Ligar motor"
+        self.ligaMotor["command"] = self.motor
+        self.ligaMotor.pack(side="top")
+
+    def motor(self):
+        print("Ligando motor")
+        os.system('sudo python3.6 ../xbee/motor.py')
+
+# centraliza
+    def centraliza(self):
+        self.centro = tk.Button(self)
+        self.centro["text"] = "Centralizando avião"
+        self.centro["command"] = self.centralizar
+        self.centro.pack(side="top")
+
+    def centralizar(self):
+        print("Centraliza avião")
+        os.system('sudo python3.6 ../xbee/centralizaY.py')
+
+
 
 root = tk.Tk()
 app = Application(master=root)
