@@ -17,6 +17,9 @@ class Application(tk.Frame):
         self.tremPouso()
         self.ligaMotor()
         self.centraliza()
+        self.desligaMotor()
+        self.esquerda()
+        self.direita()
 
 # Liga Farois
     def farois(self):
@@ -98,14 +101,14 @@ class Application(tk.Frame):
         print("Acionar trem de pouso")
         os.system('sudo python3.6 comandos/tremDePouso.py')
 
-# motor
+# liga motor
     def ligaMotor(self):
-        self.ligaMotor = tk.Button(self)
-        self.ligaMotor["text"] = "Ligar motor"
-        self.ligaMotor["command"] = self.motor
-        self.ligaMotor.pack(side="top")
+        self.Motor = tk.Button(self)
+        self.Motor["text"] = "Ligar motor"
+        self.Motor["command"] = self.motorLiga
+        self.Motor.pack(side="top")
 
-    def motor(self):
+    def motorLiga(self):
         print("Ligando motor")
         os.system('sudo python3.6 comandos/motor.py')
 
@@ -120,7 +123,38 @@ class Application(tk.Frame):
         print("Centraliza avião")
         os.system('sudo python3.6 comandos/centralizaY.py')
 
+# desliga motor
+    def desligaMotor(self):
+        self.desliga = tk.Button(self)
+        self.desliga["text"] = "Desliga Motor"
+        self.desliga["command"] = self.deslMotor
+        self.desliga.pack(side="top")
 
+    def deslMotor(self):
+        print("Desliga motor")
+        os.system('sudo python3.6 comandos/deslMotor.py')
+
+# Inclina esquerda
+    def esquerda(self):
+        self.esquerda = tk.Button(self)
+        self.esquerda["text"] = "Inclinar à esquerda"
+        self.esquerda["command"] = self.inclinaEsquerda
+        self.esquerda.pack(side="top")
+
+    def inclinaEsquerda(self):
+        print("Inclinando avião para esquerda")
+        os.system('sudo python3.6 comandos/esquerda.py') 
+
+# Inclina direita
+    def direita(self):
+        self.direita = tk.Button(self)
+        self.direita["text"] = "Inclinar à direita"
+        self.direita["command"] = self.inclinadireita
+        self.direita.pack(side="top")
+
+    def inclinadireita(self):
+        print("Inclinando avião para direita")
+        os.system('sudo python3.6 comandos/direita.py')               
 
 root = tk.Tk()
 app = Application(master=root)
