@@ -14,12 +14,17 @@ class Application(tk.Frame):
         self.buzzer()
         self.decolar()
         self.pousar()
-        self.tremPouso()
+        self.baixaTrem()
+        self.sobeTrem()
         self.ligaMotor()
-        self.centraliza()
+        self.centralizaY()
+        self.centralizaX()
         self.desligaMotor()
         self.esquerda()
         self.direita()
+        self.heliceH()
+        self.heliceA()
+        self.heliceD()
 
 # Liga Farois
     def farois(self):
@@ -90,16 +95,27 @@ class Application(tk.Frame):
         print("Pousando, apertem os cintos")
         os.system('sudo python3.6 comandos/pousaY.py')
 
-# trem de pouso
-    def tremPouso(self):
+# baixa trem de pouso
+    def baixaTrem(self):
         self.tremP = tk.Button(self)
-        self.tremP["text"] = "Acionar trem de pouso"
+        self.tremP["text"] = "Abaixar trem de pouso"
         self.tremP["command"] = self.trem
         self.tremP.pack(side="top")
 
     def trem(self):
         print("Acionar trem de pouso")
-        os.system('sudo python3.6 comandos/tremDePouso.py')
+        os.system('sudo python3.6 comandos/baixaTrem.py')
+
+# sobe trem de pouso
+    def sobeTrem(self):
+        self.tremS = tk.Button(self)
+        self.tremS["text"] = "Subir trem de pouso"
+        self.tremS["command"] = self.tremSo
+        self.tremS.pack(side="top")
+
+    def tremSo(self):
+        print("Subir trem de pouso")
+        os.system('sudo python3.6 comandos/sobeTrem.py')
 
 # liga motor
     def ligaMotor(self):
@@ -112,16 +128,27 @@ class Application(tk.Frame):
         print("Ligando motor")
         os.system('sudo python3.6 comandos/motor.py')
 
-# centraliza
-    def centraliza(self):
-        self.centro = tk.Button(self)
-        self.centro["text"] = "Centralizando avião"
-        self.centro["command"] = self.centralizar
-        self.centro.pack(side="top")
+# centraliza Y
+    def centralizaY(self):
+        self.centroY = tk.Button(self)
+        self.centroY["text"] = "Centralizando avião Y"
+        self.centroY["command"] = self.centralizarY
+        self.centroY.pack(side="top")
 
-    def centralizar(self):
-        print("Centraliza avião")
+    def centralizarY(self):
+        print("Centraliza avião Y")
         os.system('sudo python3.6 comandos/centralizaY.py')
+
+# centraliza X
+    def centralizaX(self):
+        self.centroX = tk.Button(self)
+        self.centroX["text"] = "Centralizando avião X"
+        self.centroX["command"] = self.centralizarX
+        self.centroX.pack(side="top")
+
+    def centralizarX(self):
+        print("Centraliza avião X")
+        os.system('sudo python3.6 comandos/centralizaX.py')        
 
 # desliga motor
     def desligaMotor(self):
@@ -154,7 +181,40 @@ class Application(tk.Frame):
 
     def inclinadireita(self):
         print("Inclinando avião para direita")
-        os.system('sudo python3.6 comandos/direita.py')               
+        os.system('sudo python3.6 comandos/direita.py')
+
+# Helice sentido horário
+    def heliceH(self):
+        self.h = tk.Button(self)
+        self.h["text"] = "Hélice S. Horário"
+        self.h["command"] = self.heliceHorario
+        self.h.pack(side="top")
+
+    def heliceHorario(self):
+        print("Liga hélice sentido horário")
+        os.system('sudo python3.6 comandos/heliceHorario.py')
+
+# Helice sentido anti-horário
+    def heliceA(self):
+        self.a = tk.Button(self)
+        self.a["text"] = "Hélice S. Anti-Horario"
+        self.a["command"] = self.heliceAntiHorario
+        self.a.pack(side="top")
+
+    def heliceAntiHorario(self):
+        print("Liga hélice sentido anti-horário")
+        os.system('sudo python3.6 comandos/heliceAntiHorario.py')
+
+# Desliga Helice
+    def heliceD(self):
+        self.d = tk.Button(self)
+        self.d["text"] = "Desliga Helice"
+        self.d["command"] = self.desligaHelice
+        self.d.pack(side="top")
+
+    def desligaHelice(self):
+        print("Desliga hélice ")
+        os.system('sudo python3.6 comandos/desligaHelice.py')                                         
 
 root = tk.Tk()
 app = Application(master=root)

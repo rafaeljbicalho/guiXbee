@@ -19,8 +19,7 @@ PORT = "/dev/ttyUSB0"
 # TODO: Replace with the baud rate of your local module.
 BAUD_RATE = 9600
 
-DATA_TO_SEND = 'f'
-# REMOTE_NODE_ID = "REMOTE"
+DATA_TO_SEND = 'j'
 
 
 def main():
